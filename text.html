@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Services Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&family=Inter:wght@400;600;700&family=Titillium+Web:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Adjust this to zoom the entire site. 1 = 100%, 0.85 = 85%, etc. */
+      --site-scale: 0.75;
+    }
+
+    body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(234deg, rgba(255,255,255,1) 0%, rgba(22,186,173,1) 100%);
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 1920px;
+  height: calc(5625px * 0.75);
+  position: relative;
+  margin: 0;
+  margin-left: -200px;
+  transform-origin: top center;
+  transform: scale(0.75);
+}
+
+    /* Header Styles */
+    .header {
+  position: absolute;
+  width: 1620px;
+  height: 57px;
+  top: 55px;
+  left: 150px;
+  background: transparent;
+  z-index: 100;
+}
+
+    .logo {
+      position: absolute;
+      width: 184px;
+      height: 54px;
+      top: 2px;
+      left: 0;
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: 15px;
+      left: 220px;
+      display: flex;
+      align-items: center;
+      gap: 21px;
+    }
+
+    .header-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-item {
+      font-family: 'Sora', sans-serif;
+      font-size: 20px;
+      text-decoration: none;
+      color: #063342;
+      font-weight: 700;
+    }
+
+    .nav-item.inactive {
+      color: rgba(0,0,0,0.65);
+      font-weight: 400;
+    }
+
+    .cta-button {
+      position: relative;
+      top: 0;
+      right: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, rgba(6,51,66,1) 0%, rgba(22,186,173,1) 100%);
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .support-icon {
+      position: relative;
+      width: 57px;
+      height: 57px;
+      top: 0;
+      right: 0;
+      background: #16baad;
+      border-radius: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: absolute;
+      width: 1622px;
+      height: 357px;
+      top: 207px;
+      left: 150px;
+    }
+
+    .hero-title {
+      position: absolute;
+      width: 903px;
+      top: -1px;
+      left: 0;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 70px;
+    }
+
+    .hero-title .dark { color: #063342; }
+    .hero-title .accent { color: #16baad; }
+
+    .hero-subtitle {
+      position: absolute;
+      width: 768px;
+      top: 152px;
+      left: 0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: #063342;
+      font-size: 28px;
+      line-height: 34px;
+      text-align: justify;
+    }
+
+    .hero-buttons {
+      position: absolute;
+      top: 318px;
+      left: 1px;
+      display: flex;
+      gap: 24px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, rgba(6,51,66,1) 0%, rgba(22,186,173,1) 100%);
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 10px;
+      border: 1px solid #16baad;
+      background: transparent;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: #16baad;
+      font-size: 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .hero-image {
+      position: absolute;
+      width: 719px;
+      height: 354px;
+      top: 3px;
+      right: 0;
+      background: #e6e6e6;
+      border-radius: 24px;
+      overflow: hidden;
+      background-image: url('https://c.animaapp.com/xxV6q8PO/img/human-robot-interaction-digital-world-1.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .play-button {
+      position: absolute;
+      width: 102px;
+      height: 102px;
+      top: 126px;
+      left: 309px;
+      border-radius: 66px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12.5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* Why Section */
+    .why-section {
+      position: absolute;
+      width: 1620px;
+      height: 697px;
+      top: 709px;
+      left: 150px;
+    }
+
+    .why-background {
+      position: absolute;
+      width: 1920px;
+      height: 1133px;
+      top: -27px;
+      left: -150px;
+      background-image: url('https://c.animaapp.com/xxV6q8PO/img/objects-1.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .why-title {
+      position: absolute;
+      width: 976px;
+      top: 26px;
+      left: 472px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 70px;
+      text-align: center;
+    }
+
+    .why-subtitle {
+      position: absolute;
+      width: 889px;
+      top: 186px;
+      left: 516px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: #063342;
+      font-size: 28px;
+      text-align: center;
+      line-height: 34px;
+    }
+
+    .feature-card {
+      position: absolute;
+      width: 390px;
+      height: 364px;
+      top: 360px;
+      border-radius: 30px;
+      background: linear-gradient(270deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 100%);
+      backdrop-filter: blur(12.5px);
+      border: 0.5px solid rgba(255,255,255,0.2);
+    }
+
+    .feature-card-1 { left: 180px !important; }
+    .feature-card-2 { left: 590px !important; }
+    .feature-card-3 { left: 1000px !important; }
+    .feature-card-4 { left: 1410px !important; }
+
+    .feature-icon {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      top: 35px;
+      left: 28px;
+      border-radius: 10px;
+      background: linear-gradient(162deg, rgba(22,186,173,1) 0%, rgba(67,146,241,1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-title {
+      position: absolute;
+      width: 323px;
+      top: 107px;
+      left: 26px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: #063342;
+      font-size: 32px;
+      line-height: 39px;
+    }
+
+    .feature-description {
+      position: absolute;
+      width: 340px;
+      top: 196px;
+      left: 26px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: black;
+      font-size: 24px;
+      line-height: 31px;
+    }
+
+    /* AI Domains Section */
+    .domains-section {
+      position: absolute;
+      width: 1465px;
+      height: 691px;
+      top: 1756px;
+      left: 173px;
+    }
+
+    .domains-title {
+      position: absolute;
+      top: -1px;
+      left: 228px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 84px;
+      white-space: nowrap;
+    }
+
+    .domains-subtitle {
+      position: absolute;
+      width: 889px;
+      top: 91px;
+      left: 343px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: #063342;
+      font-size: 28px;
+      text-align: center;
+      line-height: 34px;
+    }
+
+    .domain-icon {
+      position: absolute;
+      width: 72px;
+      height: 72px;
+      border-radius: 10px;
+      background: linear-gradient(162deg, rgba(22,186,173,1) 0%, rgba(67,146,241,1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .domain-label {
+      position: absolute;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: #063342;
+      font-size: 28px;
+      line-height: 34px;
+    }
+
+    /* Domain positioning */
+    .retail-icon { top: 299px; left: 330px; }
+    .retail-label { top: 314px; left: 234px; text-align: right; white-space: nowrap; }
+
+    .healthcare-icon { top: 299px; left: 1174px; }
+    .healthcare-label { top: 314px; left: 1266px; white-space: nowrap; }
+
+    .technology-icon { top: 415px; left: 330px; }
+    .technology-label { top: 426px; left: 151px; text-align: right; white-space: nowrap; }
+
+    .finance-icon { top: 415px; left: 1174px; }
+    .finance-label { top: 433px; left: 1266px; white-space: nowrap; }
+
+    .media-icon { top: 533px; left: 330px; }
+    .media-label { top: 546px; left: 0; text-align: right; white-space: nowrap; }
+
+    .manufacturing-icon { top: 533px; left: 1174px; }
+    .manufacturing-label { top: 551px; left: 1266px; white-space: nowrap; }
+
+    .domains-center-image {
+      position: absolute;
+      width: 732px;
+      height: 454px;
+      top: 237px;
+      left: 421px;
+    }
+
+    /* Services Section */
+    .services-section {
+      position: absolute;
+      width: 1620px;
+      height: 590px;
+      top: 2865px;
+      left: 150px;
+    }
+
+    .section-title {
+      position: absolute;
+      top: -1px;
+      left: 403px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 84px;
+      white-space: nowrap;
+    }
+
+    .section-subtitle {
+      position: absolute;
+      width: 889px;
+      top: 91px;
+      left: 366px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: #063342;
+      font-size: 28px;
+      text-align: center;
+      line-height: 34px;
+    }
+
+    .services-container {
+      position: absolute;
+      width: 1620px;
+      height: 380px;
+      top: 210px;
+      left: 0;
+      border-radius: 30px;
+      background: linear-gradient(270deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 100%);
+      backdrop-filter: blur(12.5px);
+      border: 0.5px solid rgba(255,255,255,0.2);
+    }
+
+    .service-item {
+      position: absolute;
+      top: 73px;
+    }
+
+    .service-title {
+      position: absolute;
+      top: 82px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: #063342;
+      font-size: 32px;
+      line-height: 39px;
+      white-space: nowrap;
+    }
+
+    .service-icon {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      top: 0;
+    }
+
+    .learn-more {
+      position: absolute;
+      top: 250px;
+      background: linear-gradient(90deg, rgba(6,51,66,1) 0%, rgba(22,186,173,1) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 39px;
+      text-decoration: underline;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    /* Service positioning */
+    .automation { width: 201px; height: 121px; left: 93px; }
+    .automation .service-title { left: 0; }
+    .automation .service-icon { left: 68px; }
+
+    .agentic-ai { width: 177px; height: 121px; left: 397px; }
+    .agentic-ai .service-title { left: 0; }
+    .agentic-ai .service-icon { left: 56px; border-radius: 10px; background: linear-gradient(162deg, rgba(22,186,173,1) 0%, rgba(67,146,241,1) 100%); display: flex; align-items: center; justify-content: center; }
+
+    .quantum { 
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      top: 73px;
+      left: 30px;
+    }
+    .quantum .service-title { width: 158px; left: 0; text-align: center; white-space: normal; line-height: 1.2; }
+    .quantum .service-icon { left: 48px; }
+
+    .machine-learning { 
+      position: absolute;
+      width: 120px;
+      height: 160px;
+      top: 73px;
+      left: 30px;
+    }
+    .machine-learning .service-title { width: 118px; left: 0; text-align: center; white-space: normal; line-height: 1.2; }
+    .machine-learning .service-icon { left: 28px; }
+
+    .digital-transformation { 
+      position: absolute;
+      width: 180px;
+      height: 160px;
+      top: 73px;
+      left: 30px;
+    }
+    .digital-transformation .service-title { width: 178px; left: 0; text-align: center; white-space: normal; line-height: 1.2; }
+    .digital-transformation .service-icon { left: 60px; }
+
+    .learn-more-1 { left: 114px; }
+    .learn-more-2 { left: 409px; }
+    .learn-more-3 { left: 705px; }
+    .learn-more-4 { left: 991px; }
+    .learn-more-5 { left: 1309px; }
+
+    .divider {
+      position: absolute;
+      width: 1px;
+      height: 284px;
+      top: 38px;
+      background: linear-gradient(to bottom, transparent, #ccc, transparent);
+    }
+
+    .divider-1 { left: 345px; }
+    .divider-2 { left: 625px; }
+    .divider-3 { left: 938px; }
+    .divider-4 { left: 1197px; }
+
+    /* Product Portfolio Section */
+    .portfolio-section {
+      position: absolute;
+      width: 1346px;
+      height: 1381px;
+      top: 3638px;
+      left: 287px;
+    }
+
+    .portfolio-title {
+      position: absolute;
+      top: -1px;
+      left: 370px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 84px;
+      white-space: nowrap;
+    }
+
+    .portfolio-toggle {
+      position: absolute;
+      width: 396px;
+      height: 68px;
+      top: 105px;
+      left: 501px;
+      background: #f2f4ff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .toggle-active {
+      position: absolute;
+      width: 186px;
+      height: 55px;
+      top: 6px;
+      left: 6px;
+      border-radius: 30px;
+      background: linear-gradient(270deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.4) 100%);
+      backdrop-filter: blur(20px);
+      border: 0.5px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toggle-text-active {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: #16baad;
+      font-size: 20px;
+      line-height: 39px;
+    }
+
+    .toggle-text-inactive {
+      position: absolute;
+      top: 13px;
+      left: 225px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 400;
+      color: black;
+      font-size: 20px;
+      line-height: 39px;
+      white-space: nowrap;
+    }
+
+    .product-card {
+      position: absolute;
+      width: 663px;
+      height: 571px;
+      border-radius: 30px;
+      background: linear-gradient(270deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.4) 100%);
+      backdrop-filter: blur(20px);
+      border: 0.5px solid rgba(255,255,255,0.2);
+    }
+
+    .product-card:nth-child(3) { top: 219px; left: 0; }
+    .product-card:nth-child(4) { top: 219px; left: 683px; }
+    .product-card:nth-child(5) { top: 810px; left: 0; }
+    .product-card:nth-child(6) { top: 810px; left: 683px; }
+
+    .product-image {
+      position: absolute;
+      width: 603px;
+      height: 292px;
+      top: 30px;
+      left: 28px;
+      background: white;
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    .product-title {
+      position: absolute;
+      top: 352px;
+      left: 28px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: #063342;
+      font-size: 32px;
+      line-height: 39px;
+      white-space: nowrap;
+    }
+
+    .product-description {
+      position: absolute;
+      width: 603px;
+      top: 401px;
+      left: 28px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: black;
+      font-size: 24px;
+      line-height: 31px;
+    }
+
+    .product-button {
+      position: absolute;
+      width: 603px;
+      top: 480px;
+      left: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, rgba(6,51,66,1) 0%, rgba(22,186,173,1) 100%);
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      position: absolute;
+      width: 1620px;
+      height: 394px;
+      top: 5200px;
+      left: 150px;
+      border-radius: 30px;
+      background: linear-gradient(270deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.4) 100%);
+      backdrop-filter: blur(20px);
+      border: 0.5px solid rgba(255,255,255,0.2);
+    }
+
+    .cta-title {
+      position: absolute;
+      width: 1026px;
+      top: 57px;
+      left: 295px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 71px;
+      text-align: center;
+    }
+
+    .cta-description {
+      position: absolute;
+      width: 1021px;
+      top: 136px;
+      left: 298px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: black;
+      font-size: 28px;
+      text-align: center;
+      line-height: 34px;
+    }
+
+    .cta-button-main {
+      position: absolute;
+      top: 263px;
+      left: 666px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, rgba(6,51,66,1) 0%, rgba(22,186,173,1) 100%);
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    .footer {
+  position: absolute;
+  width: 1920px;
+  height: 450px;
+  top: 5628px;
+  left: 0;
+  background: #063342;
+}
+
+    /* Extend footer background to cover left white gap without shifting content */
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150px;
+      width: calc(1920px + 300px);
+      height: 100%;
+      background: #063342;
+      z-index: -1;
+    }
+
+    .footer-logo {
+      position: absolute;
+      width: 253px;
+      height: 74px;
+      top: 62px;
+      left: 152px;
+    }
+
+    .footer-description {
+      position: absolute;
+      width: 567px;
+      top: 160px;
+      left: 152px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: white;
+      font-size: 20px;
+      line-height: normal;
+    }
+
+    .footer-links-title {
+      position: absolute;
+      top: 73px;
+      left: 894px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: white;
+      font-size: 36px;
+      line-height: 67px;
+      white-space: nowrap;
+    }
+
+    .footer-links {
+      position: absolute;
+      top: 139px;
+      left: 894px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .footer-links-2 {
+      position: absolute;
+      top: 139px;
+      left: 1056px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .footer-link {
+      font-family: 'Titillium Web', sans-serif;
+      font-weight: 400;
+      color: white;
+      font-size: 24px;
+      line-height: 33px;
+      text-decoration: none;
+    }
+
+    .social-title {
+      position: absolute;
+      top: 66px;
+      left: 1279px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: white;
+      font-size: 32px;
+      line-height: normal;
+    }
+
+    .social-icons {
+      position: absolute;
+      top: 125px;
+      left: 1279px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-icon {
+      width: 60px;
+      height: 60px;
+    }
+
+    .footer-copyright {
+      position: absolute;
+      top: 352px;
+      left: 750px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: white;
+      font-size: 20px;
+    }
+
+    .footer-line {
+      position: absolute;
+      width: 1920px;
+      height: 1px;
+      top: 317px;
+      left: 0;
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Responsive: scaling handled directly on .container */
+
+    /* Hover effects */
+    .learn-more:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .cta-button:hover,
+    .product-button:hover,
+    .cta-button-main:hover {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-item:hover {
+      color: #16baad;
+      transition: color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <img class="logo" src="https://c.animaapp.com/xxV6q8PO/img/coastal-seven-consulting-color-1@2x.png" alt="Coastal Seven Consulting">
+      
+      <nav class="nav-menu">
+        <a href="#" class="nav-item">Home</a>
+        <a href="#" class="nav-item inactive">Products</a>
+        <a href="#" class="nav-item inactive">Services</a>
+        <a href="#" class="nav-item inactive">Staffing</a>
+        <a href="#" class="nav-item inactive">Resources</a>
+        <a href="#" class="nav-item inactive">Careers</a>
+        <a href="#" class="nav-item inactive">About Us</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="support-icon">
+          <img src="https://c.animaapp.com/xxV6q8PO/img/support-agent-24dp-5f6368-1.svg" alt="Support" width="28" height="28">
+        </div>
+        <a href="#" class="cta-button">Schedule a Demo</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1 class="hero-title">
+        <span class="dark">Revolutionizing Business Through </span>
+        <span class="accent">Agentic AI</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Transform your organization with cutting-edge AI solutions spanning Automation, Agentic AI, Quantum Computing, Machine Learning, and Digital Transformation.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary">Start Your AI Journey</a>
+        <a href="#" class="btn-secondary">View Our Solutions</a>
+      </div>
+
+      <div class="hero-image">
+        <div class="play-button">
+          <img src="https://c.animaapp.com/xxV6q8PO/img/play-arrow-filled-1.svg" alt="Play" width="48" height="48">
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Section -->
+    <div class="why-section">
+      <div class="why-background">
+        <h2 class="why-title">
+          <span class="dark">Why Coastal Seven Leads the </span>
+          <span class="accent">AI Revolution</span>
+        </h2>
+
+        <p class="why-subtitle">
+          Delivering autonomous, goal-directed artificial intelligence<br>
+          systems that transform how businesses operate.
+        </p>
+
+        <div class="feature-card feature-card-1">
+          <div class="feature-icon">
+            <img src="https://c.animaapp.com/xxV6q8PO/img/group@2x.png" alt="AI Expertise" width="40" height="40">
+          </div>
+          <h3 class="feature-title">Agentic AI Expertise</h3>
+          <p class="feature-description">Comprehensive expertise across all AI domains.</p>
+        </div>
+
+        <div class="feature-card feature-card-2">
+          <div class="feature-icon">
+            <img src="https://c.animaapp.com/xxV6q8PO/img/noun-technology-7353043.svg" alt="Technology" width="50" height="50">
+          </div>
+          <h3 class="feature-title">Cutting-edge Technology</h3>
+          <p class="feature-description">From quantum computing to advanced ML, we leverage tomorrow's technology to solve today's problems.</p>
+        </div>
+
+        <div class="feature-card feature-card-3">
+          <div class="feature-icon">
+            <img src="https://c.animaapp.com/xxV6q8PO/img/noun-tech-products-6342418.svg" alt="Products" width="50" height="50">
+          </div>
+          <h3 class="feature-title">Product Expertise</h3>
+          <p class="feature-description">From B2B to B2C products, our AI solutions deliver measurable impact.</p>
+        </div>
+
+        <div class="feature-card feature-card-4">
+          <div class="feature-icon">
+            <img src="https://c.animaapp.com/xxV6q8PO/img/vector.svg" alt="Results" width="40" height="40">
+          </div>
+          <h3 class="feature-title">Proven Results</h3>
+          <p class="feature-description">95% client satisfaction rate with Fortune 500<br>companies</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Domains Section -->
+    <section class="domains-section">
+      <h2 class="domains-title">
+        <span class="dark">AI Domains </span>
+        <span class="accent">We're Revolutionizing</span>
+      </h2>
+
+      <p class="domains-subtitle">
+        Discover our comprehensive suite of AI solutions designed to transform businesses and enhance human experiences across multiple domains.
+      </p>
+
+      <div class="domain-icon retail-icon">
+        <img src="https://c.animaapp.com/xxV6q8PO/img/noun-cart-5934779.svg" alt="Retail" width="56" height="56">
+      </div>
+      <div class="domain-label retail-label">Retail</div>
+
+      <div class="domain-icon healthcare-icon">
+        <img src="https://c.animaapp.com/xxV6q8PO/img/noun-health-care-7796110.svg" alt="Healthcare" width="56" height="56">
+      </div>
+      <div class="domain-label healthcare-label">Healthcare</div>
+
+      <div class="domain-icon technology-icon">
+        <img src="https://c.animaapp.com/xxV6q8PO/img/group-1-1@2x.png" alt="Technology" width="33" height="37">
+      </div>
+      <div class="domain-label technology-label">Technology</div>
+
+      <div class="domain-icon finance-icon">
+        <img src="https://c.animaapp.com/xxV6q8PO/img/noun-financial-5842074.svg" alt="Finance" width="56" height="56">
+      </div>
+      <div class="domain-label finance-label">Finance</div>
+
+      <div class="domain-icon media-icon">
+        <img src="https://c.animaapp.com/xxV6q8PO/img/noun-telecommunications-4407544.svg" alt="Media" width="56" height="56">
+      </div>
+      <div class="domain-label media-label">Media & Entertainment</div>
+
+      <div class="domain-icon manufacturing-icon">
+        <img src="https://c.animaapp.com/xxV6q8PO/img/noun-chip-7891983.svg" alt="Manufacturing" width="56" height="56">
+      </div>
+      <div class="domain-label manufacturing-label">Manufacturing</div>
+
+      <img class="domains-center-image" src="https://c.animaapp.com/xxV6q8PO/img/frame-5.svg" alt="AI Domains Network">
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+      <h2 class="section-title">
+        <span class="dark">Our </span>
+        <span class="accent">AI Services Portfolio</span>
+      </h2>
+
+      <p class="section-subtitle">
+        Comprehensive AI Solutions that transform every aspect of<br>
+        your business operations.
+      </p>
+
+      <div class="services-container">
+        <div class="learn-more learn-more-1">Learn More &gt;</div>
+        <div class="learn-more learn-more-2">Learn More &gt;</div>
+        <div class="learn-more learn-more-3">Learn More &gt;</div>
+        <div class="learn-more learn-more-4">Learn More &gt;</div>
+        <div class="learn-more learn-more-5">Learn More &gt;</div>
+
+        <div class="service-item automation">
+          <div class="service-title">Automation</div>
+          <img class="service-icon" src="https://c.animaapp.com/xxV6q8PO/img/group-3@2x.png" alt="Automation">
+        </div>
+
+        <div class="service-item agentic-ai">
+          <div class="service-title">Agentic AI</div>
+          <div class="service-icon">
+            <img src="https://c.animaapp.com/xxV6q8PO/img/group-1@2x.png" alt="Agentic AI" width="40" height="40">
+          </div>
+        </div>
+
+        <div class="service-item quantum" style="width: 160px !important; transform: translateX(677px) !important;">
+          <div class="service-title" style="width: 158px !important;">Quantum Computing</div>
+          <img class="service-icon" src="https://c.animaapp.com/xxV6q8PO/img/group-7@2x.png" alt="Quantum Computing" style="left: 48px !important;">
+        </div>
+
+        <div class="service-item machine-learning" style="width: 120px !important; transform: translateX(990px) !important;">
+          <div class="service-title" style="width: 118px !important;">Machine Learning</div>
+          <img class="service-icon" src="https://c.animaapp.com/xxV6q8PO/img/group-9@2x.png" alt="Machine Learning" style="left: 28px !important;">
+        </div>
+
+        <div class="service-item digital-transformation" style="width: 180px !important; transform: translateX(1249px) !important;">
+          <div class="service-title" style="width: 178px !important;">Digital Transformation</div>
+          <img class="service-icon" src="https://c.animaapp.com/xxV6q8PO/img/group-11@2x.png" alt="Digital Transformation" style="left: 60px !important;">
+        </div>
+
+        <div class="divider divider-1"></div>
+        <div class="divider divider-2"></div>
+        <div class="divider divider-3"></div>
+        <div class="divider divider-4"></div>
+      </div>
+    </section>
+
+    <!-- Product Portfolio Section -->
+    <section class="portfolio-section">
+      <h2 class="portfolio-title">
+        <span class="dark">AI Product </span>
+        <span class="accent">Portfolio</span>
+      </h2>
+
+      <div class="portfolio-toggle">
+        <div class="toggle-active">
+          <div class="toggle-text-active">B2B Solutions</div>
+        </div>
+        <div class="toggle-text-inactive">B2C Solutions</div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://c.animaapp.com/xxV6q8PO/img/chatgpt-image-aug-4--2025--11-38-57-am-1@2x.png" alt="Agentosaur" style="width: 405px; height: 292px; position: absolute; top: 0; left: 99px; object-fit: cover;">
+        </div>
+        <div class="product-title">Agentosaur</div>
+        <p class="product-description">
+          Enterprise QA Validation Platform that turns AI<br>
+          uncertainty into Business Confidence.
+        </p>
+        <a href="#" class="product-button">Learn More</a>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://c.animaapp.com/xxV6q8PO/img/chatgpt-image-aug-4--2025--11-43-43-am-1@2x.png" alt="Brandosaur" style="width: 441px; height: 292px; position: absolute; top: 0; left: 81px; object-fit: cover;">
+        </div>
+        <div class="product-title">Brandosaur</div>
+        <p class="product-description">
+          A centralized AI-driven Asset Management Tool that<br>
+          helps teams create brand assets effortlessly.
+        </p>
+        <a href="#" class="product-button">Learn More</a>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://c.animaapp.com/xxV6q8PO/img/chatgpt-image-aug-4--2025--11-47-43-am-1@2x.png" alt="Enterprise AI Agents" style="width: 418px; height: 292px; position: absolute; top: 0; left: 93px; object-fit: cover;">
+        </div>
+        <div class="product-title">Enterprise AI Agents</div>
+        <p class="product-description">
+          Autonomous Agents that handle business workflows across departments.
+        </p>
+        <a href="#" class="product-button">Learn More</a>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://c.animaapp.com/xxV6q8PO/img/chatgpt-image-aug-4--2025--11-50-47-am-1@2x.png" alt="Digital Transformation Toolkit" style="width: 468px; height: 292px; position: absolute; top: 0; left: 68px; object-fit: cover;">
+        </div>
+        <div class="product-title">Digital Transformation Toolkit</div>
+        <p class="product-description">
+          Complete framework for organizational AI Integration.
+        </p>
+        <a href="#" class="product-button">Learn More</a>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h2 class="cta-title">
+        <span class="dark">Start Your </span>
+        <span class="accent">AI Transformation</span>
+      </h2>
+
+      <p class="cta-description">
+        Join the AI revolution with Coastal Seven Consulting.<br>
+        Transform your business with autonomous intelligence that works as hard as you do, thinks as fast as you need and scales as big as you dream.
+      </p>
+
+      <a href="#" class="cta-button-main">Start Your AI Journey</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <img class="footer-logo" src="https://c.animaapp.com/xxV6q8PO/img/coastal-seven-consulting-white-1@2x.png" alt="Coastal Seven Consulting">
+      
+      <p class="footer-description">
+        Pioneering the future of autonomous intelligence. Building AI that enhances human potential and drives meaningful progress across industries.
+      </p>
+
+      <div class="footer-links-title">Quick Links</div>
+
+      <div class="footer-links">
+        <a href="#" class="footer-link">Home</a>
+        <a href="#" class="footer-link">About Us</a>
+        <a href="#" class="footer-link">Products</a>
+      </div>
+
+      <div class="footer-links-2">
+        <a href="#" class="footer-link">Blog</a>
+        <a href="#" class="footer-link">Careers</a>
+        <a href="#" class="footer-link">Contact Us</a>
+      </div>
+
+      <div class="social-title">Join us on Social Platforms</div>
+
+      <div class="social-icons">
+        <img class="social-icon" src="https://c.animaapp.com/xxV6q8PO/img/group-1000004219@2x.png" alt="Social 1">
+        <img class="social-icon" src="https://c.animaapp.com/xxV6q8PO/img/group-1000004220@2x.png" alt="Social 2">
+        <img class="social-icon" src="https://c.animaapp.com/xxV6q8PO/img/group-1000004221@2x.png" alt="Social 3">
+        <img class="social-icon" src="https://c.animaapp.com/xxV6q8PO/img/group-1000004222@2x.png" alt="Social 4">
+      </div>
+
+      <div class="footer-line"></div>
+
+      <div class="footer-copyright">
+        <img src="https://c.animaapp.com/xxV6q8PO/img/icons8-copyright-96-1@2x.png" alt="Copyright" width="34" height="34">
+        <span>2025 Coastal Seven. All rights reserved.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Add click handlers for interactive elements
+    document.querySelectorAll('.learn-more, .btn-primary, .btn-secondary, .cta-button, .product-button, .cta-button-main').forEach(element => {
+      element.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Clicked:', this.textContent.trim());
+        // Add your navigation logic here
+      });
+    });
+
+    // Play button functionality
+    document.querySelector('.play-button')?.addEventListener('click', function() {
+      console.log('Play button clicked');
+      // Add video play logic here
+    });
+
+    // Navigation hover effects
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.color = '#16baad';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        if (this.classList.contains('inactive')) {
+          this.style.color = 'rgba(0,0,0,0.65)';
+        } else {
+          this.style.color = '#063342';
+        }
+      });
+    });
+
+    // Toggle functionality for B2B/B2C
+    document.querySelector('.portfolio-toggle')?.addEventListener('click', function() {
+      console.log('Toggle clicked - switch between B2B and B2C solutions');
+      // Add toggle logic here
+    });
+  </script>
+</body>
+</html>

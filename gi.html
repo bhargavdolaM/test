@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Services Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&amp;family=Inter:wght@400;600;700&amp;family=Titillium+Web:wght@400&amp;display=swap" rel="stylesheet"/>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Adjust this to zoom the entire site. 1 = 100%, 0.85 = 85%, etc. */
+      --site-scale: 0.75;
+    }
+
+    body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(234deg, rgba(255,255,255,1) 0%, rgba(22,186,173,1) 100%);
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 1920px;
+  height: calc(5625px * 0.75);
+  position: relative;
+  margin: 0;
+  margin-left: -200px;
+  transform-origin: top center;
+  transform: scale(0.75);
+}
+
+    /* Header Styles */
+    .header {
+  position: absolute;
+  width: 1620px;
+  height: 57px;
+  top: 55px;
+  left: 150px;
+  background: transparent;
+  z-index: 100;
+}
+
+    .logo {
+      position: absolute;
+      width: 184px;
+      height: 54px;
+      top: 2px;
+      left: 0;
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: 15px;
+      left: 220px;
+      display: flex;
+      align-items: center;
+      gap: 21px;
+    }
+
+    .header-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-item {
+      font-family: 'Sora', sans-serif;
+      font-size: 20px;
+      text-decoration: none;
+      color: #063342;
+      font-weight: 700;
+    }
+
+    .nav-item.inactive {
+      color: rgba(0,0,0,0.65);
+      font-weight: 400;
+    }
+
+    .cta-button {
+      position: relative;
+      top: 0;
+      right: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, rgba(6,51,66,1) 0%, rgba(22,186,173,1) 100%);
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .support-icon {
+      position: relative;
+      width: 57px;
+      height: 57px;
+      top: 0;
+      right: 0;
+      background: #16baad;
+      border-radius: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: absolute;
+      width: 1622px;
+      height: 357px;
+      top: 207px;
+      left: 150px;
+    }
+
+    .hero-title {
+      position: absolute;
+      width: 903px;
+      top: -1px;
+      left: 0;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 70px;
+    }
+
+    .hero-title .dark { color: #063342; }
+    .hero-title .accent { color: #16baad; }
+
+    .hero-subtitle {
+      position: absolute;
+      width: 768px;
+      top: 152px;
+      left: 0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: #063342;
+      font-size: 28px;
+      line-height: 34px;
+      text-align: justify;
+    }
+
+    .hero-buttons {
+      position: absolute;
+      top: 318px;
+      left: 1px;
+      display: flex;
+      gap: 24px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, rgba(6,51,66,1) 0%, rgba(22,186,173,1) 100%);
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 10px;
+      border: 1px solid #16baad;
+      background: transparent;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: #16baad;
+      font-size: 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .hero-image {
+      position: absolute;
+      width: 719px;
+      height: 354px;
+      top: 3px;
+      right: 0;
+      background: #e6e6e6;
+      border-radius: 24px;
+      overflow: hidden;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAs8AAAFiCAYAAAAJGDUaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUABlDRSURBVHgBbP3bjmRZkiWIiexzVM3cPe4RmVnd1dUXcoYAwUcCBOeJAAF+Bz+Bv+A/NgBBgC8E+EYMiJ6Z7urKzKq8RkRGeLi7qZ6z92wRWUtkq/dYlpV5mKkePWdvuSxZctkq/+H/PMS++vzRmsjoIvtV5DhEVOcf7PebyGn/Pf9+v8fr7N/2t22L9zQVPbsMf8/8ahf8XvDf2/z7Ye8Qnb8cY/h77Evne8Zxj8+x3/c+L9/qWrgN/7L72lq+zj/fvu4H7v2Cv83vfRe5zNce5/zvM/7b/mb3ftpr8Xn2b3sm+6CBZ7LX2+/sM+zb7s3u936L1ym+7QHzPufPc77v6Wm+7oz/bnhNwzX5OrtGx/rYfdk9jIGHbfHD/u7Pjj2Yv9duazxiPewZN8Xa4Lnmt8p8jd2H/f2CZ+5xWTlirwS3LNdLrJ3dk61Tfp7G+zveyDXn3/3fWvds8kFZsN/f7vHfy/7Pm4LM7CVHDdeYa6NjysH8HH+8Ec+oUy7G/L1ctrjPDbLo75VcN5ety6X28ThKNnb1/VDf3+5rNOzZsI5qv5v/GL7G8Rr/E/d4hCz5ks379CfGFsRezuc6Rlz7co0/mD74n0Ys0XaJNTyxtva6lxc8D/bJ7tmegTLn8oN136BvN5NzrdfbWnbI7wGZ5hqbXJlMvHo1//0U15vPrfM1w/bav494j/3t8izy5vX8OV/b9tizp3mf50t83+b3u3ciP/9N5Jd34kJle3rHPdm1np/j2Z6f4jr27LYu9lkvH+bHzPV7+ej/9mva0ut8n+l/p0x1qP0Za2f2YP7D9kNtn1xn537aPtJmuaxDll89+5bI82exvhvWhPptz2Ey5Pt2j29fXhga+xz7vIY1p164PNjnHWHDfD1P2AbIpWwhHLamR6yL66zdG+2E3YPpXaed2uIzwhCHDREIWYegbdAxk3d770mdHrEHbs+e4hkXO6c695r7O1rZH9helx27/t324w77E/JvMuV22ded8h7r5Dth675h38coWU3bCBtFHad9d/3VsqMnbLPAlrn9DZ10OXSbDhvXYedPfI691mxyW9aW9lWkbECHfbR7MNtjayjUox6f3/F6t/sH7NrA557lE0x+zcbbPZ6wnWYfpg0Ypnev3sTr3L/AlrtsSOj8afKPe+73Zf8b7FfZV21Pc7nnvV6fQ7cUfsP2yuTY7vP+EfcLm9FjrXTuzeAznQf2DLJE/21+Gn7D1+ZyqWd2H3Kf15kydIdMumxp6LfbnHvsh62prY/Jouv7Dfut8bsQqHo282UCO78v+626Tr32++hhy/KL74cwUuYEPs3es7fCAG5zp62Y9tfl1e8Rz7+XDdU95GDYutk6KXDA0Utn7D0bPsNlVKD38/pzL8Ne7HEf27SB+9yvL38l8vV3It/N7+c3sM8aPunDe5GPc51++nHa07/Ff79/F/fX8Xwb/Bnth9ny19NGf/b5/P52Xvs3Uzaewr+YPF3n62/zmj/8SeRP/yj6h9/JeP9TfMYwXe5hI32/gD+Ol9AxxzbQk7mvtiaDa61a8jNM5rfS6Q04Cb7V5YZQxq5LHfHPw/o4HoNenyH7fkn6PZeLS9g1GQ/4TKdfoV0KXAJxsN85lqL6d+Ahs9Xz4tdr2WpbL3v4HXIvuA/HkPN3H6Y9vH0M/XTcsqV+uE2da747yOkwwLxh/53EjdkiU+jVbvwqw/6u+DudnhvaM4TDQc5LATc32h/T/g0uMIzdIJDTBUynUYUAE/SaUN8XXTJlm4bIjZbAifBrKobe54N2gkOAElscAztTVnSHUh0nlLkDwNjnvMSC2YZ8/AjA1mI9fJOhjKZIf...
